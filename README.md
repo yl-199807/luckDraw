@@ -43,4 +43,4 @@ npm run build --report
 
 项目预览如下：
 
-![掘金抽奖 00_00_00-00_00_30](C:\Users\84662\Desktop\掘金抽奖 00_00_00-00_00_30.gif)
+![image-20210901171625937](C:\Users\84662\AppData\Roaming\Typora\typora-user-images\image-20210901171625937.png)
