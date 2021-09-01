@@ -37,8 +37,6 @@ npm run build --report
 
 ## 代码结构说明及项目预览
 
-工程创建参考：https://juejin.cn/post/6844903951695872007#heading-7
-
 技术栈为vue+elementUI
 
 `src/components/homePage.vue`为主页面
