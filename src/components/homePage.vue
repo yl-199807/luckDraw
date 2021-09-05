@@ -53,12 +53,15 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'homePage',
   data () {
     return {
       currentCount: 800,  // 当前矿石数
-      prizeList: ['66矿石', '随机限量徽章', '掘金新款T恤', 'Bug', '', '乐高海洋巨轮', '掘金限量桌垫', 'Yoyo抱枕', 'Switch'],
+      prizeListStatic: ['66矿石', '随机限量徽章', '掘金新款T恤', 'Bug', '', '乐高海洋巨轮', '掘金限量桌垫', 'Yoyo抱枕', 'Switch'], // 静态
+      prizeListDynamic: [],
+      prizeList: [],
       curGameIdx: 0, // 当前选中商品索引
       luckDrawUse: 200,  // 每次消耗钻石数
       Order_List: [0, 1, 2, 5, 8, 7, 6, 3],
@@ -69,6 +72,28 @@ export default {
     }
   },
   created () {
+    axios.get('http://localhost:3002/api/prize').then(res => {
+      if(res.status === 200) {
+        this.prizeList = res.data.prizeList
+        console.log("奖品信息为后端获取")
+      }
+    }).catch(err => {
+      console.log(err, "后端接口请求失败")
+      this.prizeList = this.prizeListStatic
+      console.log("奖品信息为静态")
+    })
+
+    // 登录，待完成
+    axios.get('http://localhost:3002/api/login',{
+      username: 'admin',
+      password: '123456'
+    }).then(res => {
+      if(res.status === 200) {
+        console.log(res,"resresres")
+      }
+    }).catch(err => {
+      console.log(err)
+    })
   },
   methods: {
     /**
